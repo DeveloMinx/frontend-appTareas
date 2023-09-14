@@ -1,0 +1,104 @@
+<div >
+  <div >
+
+    <div >
+
+      <div class="card">
+        <div class="card-header">
+          <h3>App tareas</h3>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="formularioTarea" *ngIf="showForm">
+
+            <mat-form-field appearance="fill" class="w-100">
+              <input matInput placeholder="Ingresar nueva tarea" formControlName="nombre">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="w-100">
+              <textarea matInput placeholder="Ingresar nueva descripción" formControlName="descripcion"></textarea>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="w-100">
+              <mat-label>Prioridad</mat-label>
+              <mat-select formControlName="prioridad">
+                <mat-option value="Alta">Alta</mat-option>
+                <mat-option value="Media">Media</mat-option>
+                <mat-option value="Baja">Baja</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <button mat-raised-button color="primary" type="button" [disabled]="formularioTarea.invalid"
+              (click)="agregarTarea()">
+              Agregar
+            </button>
+
+          </form>
+
+          <div class="agregarTask">
+            <button mat-raised-button color="primary" (click)="mostrarForm()" *ngIf="!showForm">Nueva Tarea</button>
+            <button mat-raised-button color="warn" (click)="hiddenForm()" *ngIf="showForm">Cancelar</button>
+          </div>
+
+          <div class="tableContainer">
+
+            <div class="tableContenContainer">
+              <input matInput (keyup)="aplicarFiltro($event)" placeholder="Buscar tarea">
+
+            <mat-table [dataSource]="dataSource" matSort>
+           
+              <ng-container matColumnDef="nombre">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Nombre</mat-header-cell>
+                <mat-cell *matCellDef="let tarea">{{ tarea.nombre }}</mat-cell>
+              </ng-container>
+  
+              <ng-container matColumnDef="descripcion">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Descripción</mat-header-cell>
+                <mat-cell *matCellDef="let tarea">{{ tarea.descripcion }}</mat-cell>
+              </ng-container>
+  
+              <ng-container matColumnDef="prioridad">
+                <mat-header-cell *matHeaderCellDef mat-sort-header >Prioridad</mat-header-cell>
+                <mat-cell *matCellDef="let tarea" class="prioridadConten">{{ tarea.prioridad }}</mat-cell>
+              </ng-container>
+  
+              <ng-container matColumnDef="estado">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Estado</mat-header-cell>
+                <mat-cell *matCellDef="let tarea" [ngClass]="{'tarea-completada': tarea.taskComplete === 1, 'tarea-incompleta': tarea.taskComplete === 0}">
+                  {{ tarea.taskComplete === 1 ? 'Tarea realizada' : 'Tarea incompleta' }}
+                </mat-cell>
+              </ng-container>
+              
+              
+  
+              <ng-container matColumnDef="acciones">
+                <mat-header-cell *matHeaderCellDef>Acciones</mat-header-cell>
+                <mat-cell *matCellDef="let tarea" class="butonsActions">
+                  <button mat-icon-button color="primary" *ngIf="tarea.taskComplete === 0" (click)="alertTaskCompleted(tarea)">
+                    <mat-icon>done_outline</mat-icon>
+                  </button>
+  
+                  <button mat-icon-button color="primary" (click)="abrirModalEditar(tarea)">
+                    <mat-icon>settings</mat-icon>
+                  </button>
+  
+                </mat-cell>
+              </ng-container>
+  
+              <mat-header-row *matHeaderRowDef="columnas"></mat-header-row>
+              <mat-row *matRowDef="let row; columns: columnas;"></mat-row>
+            </mat-table>
+            <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+            </div>
+            
+          </div>
+     
+
+          
+          
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>

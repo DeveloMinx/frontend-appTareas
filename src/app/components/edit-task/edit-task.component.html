@@ -1,0 +1,25 @@
+<h1>Editar Tarea</h1>
+<form [formGroup]="formularioEditar">
+  <mat-form-field class="full-width">
+    <mat-label>Nombre de la tarea</mat-label>
+    <input matInput formControlName="nombre" placeholder="Ingresar nueva tarea">
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <mat-label>Descripción</mat-label>
+    <input matInput formControlName="descripcion" placeholder="Ingresar nueva descripción">
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <mat-label>Prioridad</mat-label>
+    <mat-select formControlName="prioridad" placeholder="Prioridad">
+      <mat-option value="Alta">Alta</mat-option>
+      <mat-option value="Media">Media</mat-option>
+      <mat-option value="Baja">Baja</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" (click)="alertActualizar()">Guardar Cambios</button>
+  <button mat-raised-button color="warn" (click)="eliminarTarea()">Eliminar</button>
+  <button mat-raised-button color="basic" (click)="cancelar()">Cancelar</button>
+</form>

@@ -1,0 +1,69 @@
+
+.tarea-completada {
+    display: flex;
+    justify-content: center;
+    font-size: 15px;
+    font-weight: 800;
+    background-color: green;
+    color: rgb(255, 255, 255);
+  }
+  
+
+  .tarea-incompleta {
+    display: flex;
+    justify-content: center;
+    font-size: 15px;
+    font-weight: 800;
+    background-color: red;
+    color: white;
+  }
+  .prioridadConten{
+    display: flex;
+    justify-content: center;
+  }
+  .butonsActions{
+    display: flex;
+    justify-content: center;
+    gap: 40%;
+  }
+
+.card-header{
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 30px;
+}
+.card-header h3{
+  font-size: 30px;
+}
+
+
+
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+.mat-form-field {
+  margin-bottom: 15px;
+  width: 40%;
+}
+.tableContainer{
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.tableContenContainer{
+  width: 90%;
+}
+.agregarTask{
+  margin-top: 50px;
+  margin-left: 180px;
+}
+
+
+
+  

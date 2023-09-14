@@ -1,0 +1,46 @@
+form {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+
+  .mat-form-field {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  
+
+  button {
+    margin-right: 10px;
+  }
+  
+
+  button.mat-raised-button[color="primary"] {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  button.mat-raised-button[color="primary"]:hover {
+    background-color: #0056b3;
+  }
+  
+
+  button.mat-raised-button[color="warn"] {
+    background-color: #dc3545;
+    color: #fff;
+  }
+  
+  button.mat-raised-button[color="warn"]:hover {
+    background-color: #c82333;
+  }
+  
+
+  button.mat-raised-button[color="danger"] {
+    background-color: #ff0000;
+    color: #fff;
+  }
+  
+  button.mat-raised-button[color="danger"]:hover {
+    background-color: #cc0000;
+  }
+  
